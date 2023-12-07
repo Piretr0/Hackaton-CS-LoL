@@ -1,0 +1,36 @@
+<%- include('adminMaster.ejs') %>
+
+
+<div class="formularzyklogowaniadiv">
+
+    <div class="m-4" style="text-align: center;">
+        <h1>Dodawanie konta administratora</h1>
+    </div>
+
+    <form action="/adminPage/register" method="POST" class="loginowanie">
+        <div>
+            <% if(locals.message){ %>
+                <div class="alert alert-danger error">
+                    <%= message %>
+                </div>
+
+            <% } %>
+            <% if(locals.message2){ %>
+                <div class="alert alert-success error">
+                    <%= message2 %>
+                </div>
+
+            <% } %>
+            <label for="name">Login:</label>
+            <input type="text" id="login" name="login" required placeholder="login"/>
+        </div>
+
+        <div>
+            <label for="password">Hasło:</label>
+            <input type="password" id="password" name="password" required placeholder="hasło"/>
+        </div>
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btnLog">Dodaj</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,45 @@
+<%- include('adminMaster.ejs') %>
+<div class="container">
+    <h1 style="text-align: center;margin-bottom: 3%;">Wyniki wyszukiwania "<%= znajdz %>" :</h1>
+    
+    <div class="containterTo"></div>
+    <% grupa.forEach(function(grupy) { %>
+
+        <div class="row m-3" >
+            <div class="col-3 col-md-2 rows">
+                
+                <% if (uprEdit == 1) { %>
+                <form class="d-flex justify-content-center" id="add-row-form" action="/adminPage/details-<%= grupy.id %>" method="post">
+                    <div class="edit">
+                        <button type="submit" class="btn btn-warning">Edycja</button>
+                    </div>
+                </form> 
+                <% } %>
+               
+            </div> 
+            <div class="col-6 col-md-4 rows">
+                Nazwa Zespolu: <p><%= grupy.nazwaZespolu %> </p>
+            </div>             
+            <div class="col-6 col-md-4 rows">
+                Nazwa Szkoly:<p> <%= grupy.nazwaSzkoly %></p>
+            </div>
+            <div class="col-3 col-md-2 rows del">
+                <% if (uprDelete == 1) { %>
+                <form class="d-flex justify-content-center" id="add-row-form" action="/adminPage-delete-<%= grupy.id %>" method="post">
+                    <button  type="submit" class="btn btn-danger">Usuń</button>
+                </form>
+                <%  } %>
+            </div>
+        </div>
+        <div class="containterTo"></div>
+    <% }); %> 
+
+    <% if (grupa == 0) { %>
+        <div class="brak">Nic tu nie ma :(</div>
+        <div class="containterTo"></div>
+    <% } %>
+
+   
+
+</div>
+</div>

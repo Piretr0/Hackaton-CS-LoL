@@ -1,0 +1,529 @@
+<%- include('master.ejs') %>
+<div class="podst">
+  <div class="position-relative overflow-hidden p-1 p-md-1 m-md-1 text-center">
+    <h1 class="display-2 fw-bold minecraft">Minecraft Hackathon 2022</h1>
+  </div>
+<form id="my-form" class="formContent" style="margin: auto;" onsubmit="disableButton()">
+  <div class="">
+    <!-- template.ejs -->
+    <div id="content">
+      <% if(locals.data){ %>
+        <div class="alert alert-success"><%= data %></div>
+        <%}%>
+    </div>
+
+    <div id="message"></div>
+
+
+    <div class="formNazwaSzkola col">
+
+      <input id="selectGameInput" type="hidden" name="selectGame" required/>
+      
+
+      <div class="" style="text-align: center;">
+        <h1>Formularz zapisu zespołu z Akademii Nauk Stosowanych w Elblągu</h1>
+      </div>
+
+      <label id="selectGameLabel">Nie wybrano gry</label>
+      <div class="row">
+          <div class="col ">
+            <label>Nazwa zespołu:</label>
+            <div class="">
+              <input
+                type="text"
+                class=""
+
+                name="teamname"
+                placeholder="nazwa zespołu"
+                
+              />
+            </div>
+          </div>
+      
+      <div class="col">
+        <label>Nazwa uczelni:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            value="ANS w Elblągu"
+            name="schoolname"
+            placeholder="nazwa szkoły"
+            readonly
+            
+          />
+        </div>
+      </div>
+  </div>
+    </div>
+
+    <input type="hidden" name="schoollevel" value="student" />
+    
+    <div class="formContent-osoby row label-show">
+      <div class="col osoba">
+      </div>
+      <div class="col">
+        <label >Imię:</label>
+        <div class="">
+
+        </div>
+      </div>
+      <div class="col">
+        <label >Nazwisko:</label>
+        <div class="">
+
+        </div>
+      </div>
+      <div class="col">
+        <label >e-mail:</label>
+        <div class="">
+
+        </div>
+      </div>
+      <div class="col">
+        <label >Indeks:</label>
+        <div class="">
+
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="formContent-osoby row ">
+      <div class="col align-self-center osoba">
+        <label>Zawodnik nr 1:</label>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Imię:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="imię"
+            name="imie1"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Nazwisko:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="nazwisko"
+            name="nazwisko1"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">e-mail:</label>
+        <div class="">
+          <input
+            type="email"
+            class=""
+            placeholder="e-mail"
+            name="email1"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Indeks:</label>
+        <div class="">
+          <input
+            type="number"
+            class=""
+            placeholder="indeks"
+            name="index1"
+            
+          />
+        </div>
+      </div>
+      
+    </div>
+
+
+    <div class="formContent-osoby row" >
+      <div class="col align-self-center osoba">
+        <label>Zawodnik nr 2:</label>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Imię:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="imię"
+            name="imie2"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Nazwisko:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="nazwisko"
+            name="nazwisko2"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">e-mail:</label>
+        <div class="">
+          <input
+            type="email"
+            class=""
+            placeholder="e-mail"
+            name="email2"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Indeks:</label>
+        <div class="">
+          <input
+            type="number"
+            class=""
+            placeholder="indeks"
+            name="index2"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="formContent-osoby row" >
+      <div class="col align-self-center osoba">
+        <label>Zawodnik nr 3:</label>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Imię:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="imię"
+            name="imie3"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Nazwisko:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="nazwisko"
+            name="nazwisko3"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">e-mail:</label>
+        <div class="">
+          <input
+            type="email"
+            class=""
+            placeholder="e-mail"
+            name="email3"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Indeks:</label>
+        <div class="">
+          <input
+            type="number"
+            class=""
+            placeholder="indeks"
+            name="index3"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="formContent-osoby row" >
+      <div class="col align-self-center osoba">
+        <label>Zawodnik nr 4:</label>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Imię:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="imię"
+            name="imie4"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Nazwisko:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="nazwisko"
+            name="nazwisko4"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">e-mail:</label>
+        <div class="">
+          <input
+            type="email"
+            class=""
+            placeholder="e-mail"
+            name="email4"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Indeks:</label>
+        <div class="">
+          <input
+            type="number"
+            class=""
+            placeholder="indeks"
+            name="index4"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="formContent-osoby row" >
+      <div class="col align-self-center osoba">
+        <label>Zawodnik nr 5:</label>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Imię:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="imię"
+            name="imie5"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Nazwisko:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="nazwisko"
+            name="nazwisko5"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">e-mail:</label>
+        <div class="">
+          <input
+            type="email"
+            class=""
+            placeholder="e-mail"
+            name="email5"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Indeks:</label>
+        <div class="">
+          <input
+            type="number"
+            class=""
+            placeholder="indeks"
+            name="index5"
+          />
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="formContent-osoby row" >
+      <div class="col align-self-center osoba ">
+        <label>Zawodnik Rezerwowy nr 1:</label>
+      </div>
+      <div class="col align-self-center" >
+        <label class="label-hidden">Imię:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="imię"
+            name="imie6"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Nazwisko:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="nazwisko"
+            name="nazwisko6"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">e-mail:</label>
+        <div class="">
+          <input
+            type="email"
+            class=""
+            placeholder="e-mail"
+            name="email6"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Indeks:</label>
+        <div class="">
+          <input
+            type="number"
+            class=""
+            placeholder="indeks"
+            name="index6"
+          />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="formContent-osoby row" >
+      <div class="col align-self-center osoba">
+        <label>Zawodnik Rezerwowy nr 2:</label>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Imię:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="imię"
+            name="imie7"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Nazwisko:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+            placeholder="nazwisko"
+            name="nazwisko7"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">e-mail:</label>
+        <div class="">
+          <input
+            type="email"
+            class=""
+            placeholder="e-mail"
+            name="email7"
+            
+          />
+        </div>
+      </div>
+      <div class="col align-self-center">
+        <label class="label-hidden">Indeks:</label>
+        <div class="">
+          <input
+            type="number"
+            class=""
+            placeholder="indeks"
+            name="index7"
+          />
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="" style="text-align: center;">
+    <label>Wysłanie formularza jest jednoznaczne z akceptacją <a href="regulamin/regulamin.pdf" download>regulaminu.</a></label>
+  </div>
+  <div class="formContent-btn">
+    <button type="submit" id="btn2" class="mcbutton">Wyślij</button>
+  </div>
+</form>
+</div>
+
+<script>
+  $(document).ready(function() {
+   $('#my-form').submit(function(event) {
+       event.preventDefault(); // Prevent the form from submitting normally
+
+       // Get the form data
+       var formData = $('#my-form').serialize();
+
+       // Submit the form data using AJAX
+       $.ajax({
+       type: 'POST',
+       url: '/postteam',
+       data: formData,
+       success: function(response) {
+           // If the server returns a success message, display it
+           $('#message').html('<p>' + response.message + '</p>');
+       },
+       error: function(xhr, status, error) {
+           // If the server returns an error message, display it
+           var errorMessage = JSON.parse(xhr.responseText).message;
+           $('#message').html('<p>' + errorMessage + '</p>');
+       }
+       });
+   });
+   }); 
+</script>
+
+
+<script>
+  function disableButton() {
+    var btn = document.getElementById("btn2");
+    btn.disabled = true;
+    btn.innerText = "Wysyłanie...";
+  }
+
+  $(document).ready(function() {
+$.ajax({
+  url: '/data',
+  success: function(data) {
+    $('#content').html('<p>' + data + '</p>');
+  }
+});
+});
+
+
+
+
+
+  
+</script>

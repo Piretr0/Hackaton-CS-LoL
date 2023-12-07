@@ -1,0 +1,276 @@
+<%- include('master.ejs') %>
+<div class="podst">
+  <div class="position-relative overflow-hidden p-1 p-md-1 m-md-1 text-center">
+    <h1 class="display-2 fw-bold minecraft">Minecraft Hackathon 2022</h1>
+  </div>
+  <form class="formContent" style="margin: auto;" action="postteam" method="POST" onsubmit="disableButton()">
+    <div class="">
+      <% if(locals.message){ %>
+      <div class="alert alert-success"><%= message %></div>
+  
+      <%}%> <% if(locals.message2){ %>
+      <div class="alert alert-danger"><%= message2 %></div>
+  
+      <%}%>
+      <div class="formNazwaSzkola row" >
+        <div class="" style="text-align: center;">
+          <h1>Formularz zapisu zespołu ze szkoły średniej</h1>
+        </div>
+        <div class="col ">
+          <label>Nazwa zespołu:</label>
+          <div class="">
+            <input
+              type="text"
+              class=""
+              name="teamname"
+              placeholder="nazwa zespołu"
+              required
+            />
+          </div>
+        </div>
+        <div class="col">
+          <label>Nazwa szkoły:</label>
+          <div class="">
+            <input
+              type="text"
+              class=""
+              name="schoolname"
+              placeholder="nazwa szkoły"
+              required
+            />
+          </div>
+        </div>
+      </div>
+  
+      <input type="hidden" name="schoollevel" value="srednie" />
+      
+      <div class="formContent-osoby row">
+        <div class="col osoba">
+          <label>Osoba nr 1:</label>
+        </div>
+        <div class="col">
+          <label>Imię:</label>
+          <div class="">
+            <input
+              type="text"
+              class=""
+              placeholder="imię"
+              name="imie1"
+              required
+            />
+          </div>
+        </div>
+        <div class="col">
+          <label>Nazwisko:</label>
+          <div class="">
+            <input
+              type="text"
+              class=""
+              placeholder="nazwisko"
+              name="nazwisko1"
+              required
+            />
+          </div>
+        </div>
+        <div class="col">
+          <label>e-mail:</label>
+          <div class="">
+            <input
+              type="email"
+              class=""
+              placeholder="e-mail"
+              name="email1"
+              required
+            />
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="formContent-osoby row" >
+        <div class="col osoba">
+          <label>Osoba nr 2:</label>
+        </div>
+        <div class="col">
+          <label class="label-hidden">Imię:</label>
+          <div class="">
+            <input
+              type="text"
+              class=""
+              placeholder="imię"
+              name="imie2"
+              required
+            />
+          </div>
+        </div>
+        <div class="col">
+          <label class="label-hidden">Nazwisko:</label>
+          <div class="">
+            <input
+              type="text"
+              class=""
+              placeholder="nazwisko"
+              name="nazwisko2"
+              required
+            />
+          </div>
+        </div>
+        <div class="col">
+          <label class="label-hidden">e-mail:</label>
+          <div class="">
+            <input
+              type="email"
+              class=""
+              placeholder="e-mail"
+              name="email2"
+              required
+            />
+          </div>
+        </div>
+      </div>
+  
+      <div class="formContent-osoby row" >
+        <div class="col osoba">
+          <label>Osoba nr 3:</label>
+        </div>
+        <div class="col">
+          <label class="label-hidden">Imię:</label>
+          <div class="">
+            <input
+              type="text"
+              class=""
+              placeholder="imię"
+              name="imie3"
+              required
+            />
+          </div>
+        </div>
+        <div class="col">
+          <label class="label-hidden">Nazwisko:</label>
+          <div class="">
+            <input
+              type="text"
+              class=""
+              placeholder="nazwisko"
+              name="nazwisko3"
+              required
+            />
+          </div>
+        </div>
+        <div class="col">
+          <label class="label-hidden">e-mail:</label>
+          <div class="">
+            <input
+              type="email"
+              class=""
+              placeholder="e-mail"
+              name="email3"
+              required
+            />
+          </div>
+        </div>
+      </div>
+  
+      <div class="formContent-osoby row" >
+        <div class="col osoba">
+          <label>Osoba nr 4:</label>
+        </div>
+        <div class="col">
+          <label class="label-hidden">Imię:</label>
+          <div class="">
+            <input
+              type="text"
+              class=""
+              placeholder="imię"
+              name="imie4"
+              required
+            />
+          </div>
+        </div>
+        <div class="col">
+          <label class="label-hidden">Nazwisko:</label>
+          <div class="">
+            <input
+              type="text"
+              class=""
+              placeholder="nazwisko"
+              name="nazwisko4"
+              required
+            />
+          </div>
+        </div>
+        <div class="col">
+          <label class="label-hidden">e-mail:</label>
+          <div class="">
+            <input
+              type="email"
+              class=""
+              placeholder="e-mail"
+              name="email4"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+
+        <div class="formContent-osoby row" >
+          <div class="col osoba">
+            <label>Opiekun:</label>
+          </div>
+          <div class="col">
+            <label class="label-hidden">Imie:</label>
+            <div class="">
+              <input
+                      type="text"
+                      class=""
+                      placeholder="imię"
+                      name="imie5"
+                      required
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="label-hidden">Nazwisko:</label>
+            <div class="">
+              <input
+                      type="text"
+                      class=""
+                      placeholder="nazwisko"
+                      name="nazwisko5"
+                      required
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label class="label-hidden">e-mail:</label>
+            <div class="">
+              <input
+                      type="email"
+                      class=""
+                      placeholder="e-mail"
+                      name="email5"
+                      required
+              />
+            </div>
+          </div>
+        </div>
+
+    </div>
+    <div class="" style="text-align: center;">
+      <label>Wysłanie formularza jest jednoznaczne z akceptacją <a href="regulamin/regulamin.pdf" download>regulaminu.</a></label>
+    </div>
+    <div class="formContent-btn">
+      <button type="submit" id="btn2" class="mcbutton">Wyślij</button>
+    </div>
+  </form>
+  </div>
+
+<script>
+  function disableButton() {
+    var btn = document.getElementById("btn2");
+    btn.disabled = true;
+    btn.innerText = "Wysyłanie...";
+  }
+</script>
+<%- include('footer.ejs') %>

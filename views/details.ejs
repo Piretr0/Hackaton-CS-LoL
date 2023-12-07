@@ -1,0 +1,111 @@
+<%- include('adminMaster.ejs') %>
+
+<div class="m-4" style="text-align: center">
+  <h1>Formularz edycji</h1>
+
+  <form action="/update-<%= grupa.id %>" method="POST">
+    <div class="form-group">
+      <div class="row" style="text-align: center">
+        <div class="col">
+          <label>Nazwa zespołu: <%= grupa.id %></label>
+          <input
+            type="text"
+            class="form-control"
+            name="teamname"
+            value="<%= grupa.nazwaZespolu %>"
+            placeholder="nazwa zespołu"
+            required
+          />
+        </div>
+        <div class="col">
+          <label>Nazwa szkoły:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="schoolname"
+            value="<%= grupa.nazwaSzkoly %>"
+            placeholder="nazwa szkoły"
+            required
+          />
+        </div>
+        <div class="col">
+          <label>Stopień szkoły:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="schoollevel"
+            value="<%= grupa.stopienSzkoly %>"
+            placeholder="stopien szkoly"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="row mt-4" style="text-align: center">
+        <div class="col"></div>
+        <div class="col">
+          <label>Imie:</label>
+        </div>
+        <div class="col">
+          <label>Nazwisko:</label>
+        </div>
+        <div class="col">
+          <label>e-mail:</label>
+        </div>
+        <div class="col">
+          <label>Indeks:</label>
+        </div>
+      </div>
+
+      <% var i=1 %> <% user.forEach(function(user) { %>
+
+      <div class="row mb-3">
+        <div class="col">
+          <label>Osoba nr <%= i %>:</label>
+        </div>
+
+        <input type="hidden" value="<%= user.id %>" name="userId<%= i %>" />
+
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="imię"
+            value="<%= user.imie %>"
+            name="imie<%= i %>"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="nazwisko"
+            value="<%= user.nazwisko %>"
+            name="nazwisko<%= i %>"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="e-mail"
+            value="<%= user.email %>"
+            name="email<%= i %>"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="indeks"
+            value="<%= user.index %>"
+            name="index<%= i %>"
+          />
+        </div>
+      </div>
+
+      <% i++ %> <% }); %>
+    </div>
+   
+  </form>
+</div>

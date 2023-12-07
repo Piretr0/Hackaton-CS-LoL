@@ -1,0 +1,36 @@
+<!-- form.html -->
+<form id="my-form2">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required>
+    <button type="submit">Submit</button>
+</form>
+  
+<div id="message"></div>
+  
+
+<script>
+   $(document).ready(function() {
+    $('#my-form2').submit(function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        // Get the form data
+        var formData = $('#my-form2').serialize();
+
+        // Submit the form data using AJAX
+        $.ajax({
+        type: 'POST',
+        url: '/submit-form2',
+        data: formData,
+        success: function(response) {
+            // If the server returns a success message, display it
+            $('#message').html('<p>' + response.message + '</p>');
+        },
+        error: function(xhr, status, error) {
+            // If the server returns an error message, display it
+            var errorMessage = JSON.parse(xhr.responseText).message;
+            $('#message').html('<p>' + errorMessage + '</p>');
+        }
+        });
+    });
+    }); 
+</script>

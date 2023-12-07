@@ -1,0 +1,38 @@
+<div class="containerToDo" style="margin-left: 100px;">
+
+<div id="preDruzynaWyniki-0" style="float: left;width:200px" class="druzyna-wynik">Team A</div>
+
+<div id="glowneDruzynaNazwa-0" style="float: right; width:200px" class="druzyna-nazwa">Team B</div>
+<div id="line"></div>
+
+
+</div>
+
+
+
+<script>
+const preDruzynaWyniki = document.querySelector("#preDruzynaWyniki-0");
+const glowneDruzynaNazwa = document.querySelector("#glowneDruzynaNazwa-0");
+const line = document.createElement("div");
+line.style.position = "fixed";
+line.style.background = "black";
+
+function updateLinePosition() {
+  const preDruzynaWynikiRect = preDruzynaWyniki.getBoundingClientRect();
+  const glowneDruzynaNazwaRect = glowneDruzynaNazwa.getBoundingClientRect();
+  const lineX = preDruzynaWynikiRect.left + preDruzynaWynikiRect.width;
+  const lineY = (preDruzynaWynikiRect.top + glowneDruzynaNazwaRect.bottom) / 2;
+  const lineWidth = glowneDruzynaNazwaRect.left - preDruzynaWynikiRect.right;
+  const lineHeight = 2;
+  line.style.left = lineX + "px";
+  line.style.top = lineY + "px";
+  line.style.width = lineWidth + "px";
+  line.style.height = lineHeight + "px";
+}
+
+updateLinePosition();
+
+window.addEventListener("resize", updateLinePosition);
+document.body.appendChild(line);
+
+</script>

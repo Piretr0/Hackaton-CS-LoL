@@ -1,0 +1,131 @@
+<%- include('adminMaster.ejs') %>
+<script>
+  $(document).ready(function () {
+    $("#admins").DataTable({
+       
+      language: {
+        search: "Szukaj:  ",
+        lengthMenu: "Pokaż _MENU_ rekordów na stronie",
+        zeroRecords: "Nic tu nie ma :(",
+        info: " _PAGE_ / _PAGES_ ",
+        infoEmpty: "Nie ma takiego rekordu",
+        infoFiltered: "(Pokazano ze wszystkich _MAX_ rekordów)",
+        paginate: {
+          previous: "Wcześniejsza ",
+          next: "Następna",
+        },
+      },
+    });
+  });
+</script>
+<div class="d-flex justify-content-center">
+  <div class="datatablediv2">
+    <table id="admins" class="table table-striped dt-responsive">
+      <thead >
+        <tr>
+          <th>Uprawnienia dodawania</th>
+          <th>Uprawnienia edycji</th>
+          <th>Uprawnienia usuwania</th>
+          <th>Login</th>
+          <th>Usuwanie kont</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% registers.forEach(function( registers) { %>
+        <tr style="background-color: #28242c; border-bottom: 2px solid white">
+          <td>
+            <% if (registers.add==0) { %>
+
+            <form action="/admins-addadd-<%= registers.id %>" method="post">
+              <button type="submit" class="btn btn-success butonik">
+                Dodaj dodawanie
+              </button>
+            </form>
+
+            <% } %> <% if (registers.add==1) { %>
+
+            <form action="/admins-takeadd-<%= registers.id %>" method="post">
+              <button type="submit" class="btn btn-danger butonik">
+                Odbierz dodawanie
+              </button>
+            </form>
+
+            <% } %>
+          </td>
+          <td>
+            <% if (registers.edit===0) { %>
+
+            <form action="/admins-addedit-<%= registers.id %>" method="post">
+              <button type="submit" class="btn btn-success butonik">
+                Dodaj edycje
+              </button>
+            </form>
+
+            <% } %> <% if (registers.edit==1) { %>
+
+            <form action="/admins-takeedit-<%= registers.id %>" method="post">
+              <button type="submit" class="btn btn-danger butonik">
+                Odbierz edycje
+              </button>
+            </form>
+
+            <% } %>
+          </td>
+          <td>
+            <% if (registers.delete==0) { %>
+
+            <form action="/admins-adddelete-<%= registers.id %>" method="post">
+              <button type="submit" class="btn btn-success butonik">
+                Dodaj usuwanie
+              </button>
+            </form>
+
+            <% } %> <% if (registers.delete==1) { %>
+
+            <form action="/admins-takedelete-<%= registers.id %>" method="post">
+              <button type="submit" class="btn btn-danger butonik">
+                Odbierz usuwanie
+              </button>
+            </form>
+
+            <% } %>
+          </td>
+
+          <td>
+            <p style="margin-top: 30%"><%= registers.login %></p>
+          </td>
+          <td>
+            <% if (registers.power==0) { %>
+
+            <form action="/admins-delete-<%= registers.id %>" method="post">
+              <button
+                type="submit"
+                onclick="return confirm('Czy na pewno chcesz usunąć konto?')"
+                class="btn btn-danger butonik"
+              >
+                Usuń konto
+              </button>
+            </form>
+
+            <% } %> <% if (registers.power==1) { %>
+
+            <form action="/admins-delete-<%= registers.id %>" method="post">
+              <button
+                type="submit"
+                onclick="return confirm('Czy na pewno chcesz usunąć konto?')"
+                class="btn btn-danger butonik"
+                disabled
+              >
+                Usuń konto
+              </button>
+            </form>
+
+            <% } %>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+</div>

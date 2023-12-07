@@ -1,0 +1,674 @@
+<div class="containerToDo" style="margin-left: 100px;">
+
+<form  style="margin: auto;" action="addToLista" method="POST">
+  <div>
+      <div class="col ">
+        <label>Dodaj zespół:</label>
+        <div class="">
+          <input
+            type="text"
+            class=""
+
+            name="teamname"
+            placeholder="nazwa zespołu"
+            required
+          />
+    <button type="submit" id="btn2">Wyślij</button>
+
+        </div>
+      </div>
+    <input type="hidden" name="schoollevel" value="student" />
+  </div>
+</form>
+<button type="button" onclick="refresh()">odśwież</button>
+
+  <% 
+    const iloscDruzyn = Lista.length +1
+
+    let iloscDruzynNext = iloscDruzyn
+
+
+  %>
+  <div style="display: flex; flex-direction: row; justify-content: center">
+    
+    <% 
+    
+    const puste = "puste"
+
+    var druzynaRownaPotedze = 0
+
+    var potega = 1
+
+    var potegaLicznik = potega
+
+    while ( iloscDruzyn > potega*2){
+      potega *= 2
+      potegaLicznik = potega
+    }
+
+    if (iloscDruzyn == potega*2){
+      druzynaRownaPotedze = 1
+    }
+
+    %>
+    <% if (druzynaRownaPotedze == 0) {  %>
+      
+        <% 
+        var sprawdz = iloscDruzyn - potegaLicznik*2
+
+        while ( sprawdz < 1) { 
+          
+          sprawdz = iloscDruzyn - potegaLicznik*2
+          
+          %>
+
+
+          <%potegaLicznik = potegaLicznik - 1
+        } %>
+
+
+        <% const startPreWalki =  (iloscDruzyn - potega)*2 %>
+        <% const startGlowneWalki = potega - startPreWalki/2 %>
+
+        <% //console.log("startPreWalki" + startPreWalki) %>
+        <% //console.log("startGlowneWalki" + startGlowneWalki) %>
+        <% //console.log("potegaLicznik" + potegaLicznik) %>
+        <% //console.log("potega" + potega) %>
+        <% //console.log("iloscDruzyn" + iloscDruzyn) %>
+
+
+        <% // Pre Walki %>
+      <div class="drabinkaPodzial">
+
+        <% 
+        // Pre walki -----------------------------------------------------------------------------------
+        var j = 0
+        for (let i = 0; i < potega; i++) { 
+          %>
+          <% if(i < startPreWalki/2) { %>
+            <%// Nazwy%>
+            <div class="containerTeams" >
+              <%
+              // Sart podwojne
+                let teamA = Lista[i]?.team_a?.id
+                if(Lista[i]?.team_a?.id == null){
+                  let teamA = null
+                }
+                let teamB = Lista[i]?.team_b?.id
+                if(Lista[i]?.team_b?.id == null){
+                  let teamB = null
+                }
+                //console.log("team ID =" + Lista[i]?.id)
+                //console.log("teamA =" + teamA)
+                //console.log("teamB =" + teamB)
+                %>
+
+
+                <% if(teamB == null) { %>
+                  <% //console.log(" teamB puste") %>
+                  <div id="glowneDruzynaNazwa-<%= i %>">
+                    <div class="blokDruzyny">
+                      <select style="background-color: rgb(56, 56, 56);" id="framework">
+                        <option value="0">puste</option>
+                        <% Lista?.forEach(function(grupa) {%>
+                          <option value="<%= grupa?.id %>"><%= grupa?.nazwaZespolu %></option>
+                        <%  }) %>
+                      </select>
+                    </div>
+                  </div>
+                <% } 
+                else {%>
+                  <div style="border-bottom: 1px solid black; width: 100%; text-align: center;">
+                    <div class="blokDruzyny" onClick="showZawodnicy('druzyna-<%= Lista[i]?.team_b?.id %>')">
+                        <div><%= Lista[i]?.team_b?.nazwaZespolu %></div>
+                    </div>
+
+                      <div 
+                      style="display: none;position: absolute;top: -85px;left: 200px;min-width: 300px;border: 3px solid black;background-color: rgb(61, 61, 61);padding-left: 10px;padding-bottom: 5px;" 
+                      id="druzyna-<%= Lista[i]?.team_b?.id %>">
+                      <div style="font-size: 20px;">Zawodnicy: <br/></div>
+                      <div style="font-size: 17px; padding-left: 5px;">
+                        <% Lista[i]?.team_b?.users?.forEach(function(zawodnik) {%>
+                          <%if(zawodnik?.rezerwa == 0){%>
+                            <%= zawodnik?.imie %>
+                          <%= zawodnik?.nazwisko %><br/>
+                            <%  } %>
+                        <%  }) %>
+                      </div>
+                        <div style="font-size: 20px;">Rezerwa: <br/></div>
+                      <div style="font-size: 17px; padding-left: 5px;">
+                        <% Lista[i]?.team_b?.users?.forEach(function(zawodnik) {%>
+                          <%if(zawodnik?.rezerwa == 1){%>
+                            <%= zawodnik?.imie %>
+                          <%= zawodnik?.nazwisko %><br/>
+                            <%  } %>
+                        <%  }) %>
+                      </div>
+                      </div>
+                  </div>
+                <% } %>
+
+                
+
+                <% if(teamA == null) { %>
+                  <% //console.log(" teamA puste") %>
+                  <div id="glowneDruzynaNazwa-<%= i %>">
+                    <div class="blokDruzyny">
+                      <select style="background-color: rgb(56, 56, 56);" id="framework">
+                        <option value="0">puste</option>
+                        <% Lista?.forEach(function(grupa) {%>
+                          <option value="<%= grupa?.id %>"><%= grupa?.nazwaZespolu %></option>
+                        <%  }) %>
+                      </select>
+                    </div>
+                  </div>
+                <% } 
+                else{%>
+                  <div>
+                    <div class="blokDruzyny" onClick="showZawodnicy('druzyna-<%= Lista[i]?.team_a?.id %>')">
+                        <div><%= Lista[i]?.team_a?.nazwaZespolu %></div>
+                    </div>
+                      
+                      <div 
+                      style="display: none;position: absolute;top: -85px;left: 200px;min-width: 300px;border: 3px solid black;background-color: rgb(61, 61, 61);padding-left: 10px;padding-bottom: 5px;" 
+                      id="druzyna-<%= Lista[i]?.team_a?.id %>">
+                      <div style="font-size: 20px;">Zawodnicy: <br/></div>
+                      <div style="font-size: 17px; padding-left: 5px;">
+                        <% Lista[i]?.team_a?.users?.forEach(function(zawodnik) {%>
+                          <%if(zawodnik?.rezerwa == 0){%>
+                            <%= zawodnik?.imie %>
+                          <%= zawodnik?.nazwisko %><br/>
+                            <%  } %>
+                        <%  }) %>
+                      </div>
+                        <div style="font-size: 20px;">Rezerwa: <br/></div>
+                      <div style="font-size: 17px; padding-left: 5px;">
+                        <% Lista[i]?.team_a?.users?.forEach(function(zawodnik) {%>
+                          <%if(zawodnik?.rezerwa == 1){%>
+                            <%= zawodnik?.imie %>
+                          <%= zawodnik?.nazwisko %><br/>
+                            <%  } %>
+                        <%  }) %>
+                      </div>
+                      </div>
+                  </div>
+                <% } %>
+            </div>
+
+          <% j ++ 
+            } else { %>
+              <%// Puste%>
+              <div style="display: flex; align-items: center; margin-top: 10px; margin-bottom: 10px;">
+                <div class="nazwy">
+                  <div class="blokDruzyny">
+                    &nbsp;
+                  </div>
+                  <div class="blokDruzyny">
+                    &nbsp;
+                  </div>
+                </div>
+              </div>
+              
+            
+          <% }; %>
+  
+        <% }; %>
+  
+        
+
+      </div>
+
+      <div class="drabinkaPodzialWyniki">
+          <% 
+          // Pre walki -----------------------------------------------------------------------------------
+          var j = 0
+          for (let i = 0; i < potega; i ++) { 
+            %>
+
+            <% // Wyniki Start %>
+
+            <% if(i < startPreWalki/2) { %>
+            <%// Nazwy%>
+            <div>
+              <div class="containerTeamsWyniki" id="preDruzynaWyniki-<%= i %>">
+              <%
+              // Sart podwojne
+                let teamA = Lista[i]?.team_a_score
+                if(Lista[i]?.team_a_score == null){
+                  let teamA = null
+                }
+                let teamB = Lista[i]?.team_b_score
+                if(Lista[i]?.team_b_score == null){
+                  let teamB = null
+                }
+                //console.log("team ID =" + Lista[i]?.id)
+                //console.log("teamA =" + teamA)
+                //console.log("teamB =" + teamB)
+                %>
+                <% let background_color_win =  "rgb(34, 74, 255)" %>
+                <% let background_color_lose =  "none" %>
+                <% let background_color_none =  "none" %>
+
+                <% if(teamB == null) { %>
+                  <% //console.log(" teamB puste") %>
+                  <div style="display: flex; width: 100%; border-bottom: 1px solid black;" >
+                    <div style="background-color: <%= background_color_none  %>; border-radius: 0px 4px 0px 0px; padding-left: 5px; padding-right: 5px;" class="blokDruzynyWyniki">
+                      <%= 0 %>
+                    </div>
+                  </div>
+                <% } 
+                else {%>
+                  <div style="display: flex; width: 100%; flex-direction: column; align-items: stretch; text-align: center; border-bottom: 1px solid black;">
+                    <div style="background-color: <% if(Lista[i]?.team_b_score>Lista[i]?.team_a_score){%> <%= background_color_win %> <% } %>; border-radius: 0px 4px 0px 0px; padding-left: 5px; padding-right: 5px;" class="blokDruzynyWyniki">
+                      <%= Lista[i]?.team_b_score %>
+                    </div>
+                  </div>
+                <% } %>
+
+                
+
+                <% if(teamA == null) { %>
+                  <% //console.log(" teamA puste") %>
+                  <div style="display: flex; width: 100%;">
+                    <div style="background-color: <%= background_color_none %>; border-radius: 0px 4px 0px 0px; padding-left: 5px; padding-right: 5px;" class="blokDruzynyWyniki">
+                      <%= 0 %>
+                    </div>
+                  </div>
+                <% } 
+                else{%>
+                  <div style="display: flex; width: 100%; flex-direction: column; align-items: stretch;">
+                    <div style="background-color: <% if(Lista[i]?.team_a_score>Lista[i]?.team_b_score){%> <%= background_color_win %> <% } %>  %>; border-radius: 0px 0px 4px 0px; padding-left: 5px; padding-right: 5px;" class="blokDruzynyWyniki">
+                      <%= Lista[i]?.team_a_score %>
+                    </div>
+                  </div>
+                <% } %>
+              </div>
+            </div>
+
+          <% j ++ 
+            } else { %>
+              <%// Puste%>
+              <div style="display: flex; align-items: center; margin-top: 10px; margin-bottom: 10px;">
+                <div class="nazwy">
+                  <div class="blokDruzyny">
+                    &nbsp;
+                  </div>
+                  <div class="blokDruzyny">
+                    &nbsp;
+                  </div>
+                </div>
+              </div>
+          <% }; %>
+
+            <% //Wyniki Koniec %>
+    
+          <% }; %>
+    
+      </div>
+
+
+        <% // Główne Walki  %>
+      <div class="drabinkaPodzial">
+        <% //console.log("Główne Walki") %>
+        <% //console.log("j = " + j) %>
+        <% //console.log("(potega/2) = " + (potega/2)) %>
+        <% 
+        // Główne walki ---------------------------------------------------------------------------------
+        
+        j = j + (potega/2) + 1
+        for (let i = 0; i < potega/2; i ++) { j-- %>
+          
+          <% //console.log("i = " + i + "; i <= " + potega/2 + "; i++ ; " ) %>
+          <% //console.log(i) %>
+          <% //console.log(j) %>
+          
+            <div  class="containerTeams" id="glowneDruzynaNazwa-<%= j %>">
+              <% //console.log("if (" + i + ">=" + startPreWalki + "/" + 2 + ")") %>
+
+              <% 
+
+
+              let teamA = Lista[j-1]?.team_a?.id
+              if(Lista[j-1]?.team_a?.id == null){
+                let teamA = null
+              }
+              let teamB = Lista[j-1]?.team_b?.id
+              if(Lista[j-1]?.team_b?.id == null){
+                let teamB = null
+              }
+              //console.log("team ID =" + Lista[j-1]?.id)
+              //console.log("teamA =" + teamA)
+              //console.log("teamB =" + teamB)
+              %>
+
+
+              <% if(teamB == null) { %>
+                <% //console.log(" teamB puste") %>
+                <div style="margin-top: 10px; margin-bottom: 10px; " >
+                  <div class="blokDruzyny">
+                    <select style="background-color: rgb(56, 56, 56); height: 45px;" id="framework">
+                      <option value="0">puste</option>
+                      <% Lista?.forEach(function(grupa) {%>
+                        <option value="<%= grupa?.id %>"><%= grupa?.nazwaZespolu %></option>
+                      <%  }) %>
+                    </select>
+                  </div>
+                </div>
+              <% } 
+              else {%>
+                <div style="display: flex; ">
+                  <div style="position: relative;" class="blokDruzyny" onClick="showZawodnicy('druzyna-<%= Lista[j-1]?.team_b?.id %>')">
+                    <%= Lista[j-1]?.team_b?.nazwaZespolu %>
+                    <div 
+                    style="display: none;position: absolute;top: -85px;left: 200px;min-width: 300px;border: 3px solid black;background-color: rgb(61, 61, 61);padding-left: 10px;padding-bottom: 5px;" 
+                    id="druzyna-<%= Lista[j-1]?.team_b?.id %>">
+                    <div style="font-size: 20px;">Zawodnicy: <br/></div>
+                    <div style="font-size: 17px; padding-left: 5px;">
+                      <% Lista[j-1]?.team_b?.users?.forEach(function(zawodnik) {%>
+                        <%if(zawodnik?.rezerwa == 0){%>
+                          <%= zawodnik?.imie %>
+                        <%= zawodnik?.nazwisko %><br/>
+                          <%  } %>
+                      <%  }) %>
+                    </div>
+                      <div style="font-size: 20px;">Rezerwa: <br/></div>
+                    <div style="font-size: 17px; padding-left: 5px;">
+                      <% Lista[j-1]?.team_b?.users?.forEach(function(zawodnik) {%>
+                        <%if(zawodnik?.rezerwa == 1){%>
+                          <%= zawodnik?.imie %>
+                        <%= zawodnik?.nazwisko %><br/>
+                          <%  } %>
+                      <%  }) %>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
+
+              <% if(teamA == null) { %>
+                <% //console.log(" teamA puste") %>
+                <div style="margin-top: 10px; margin-bottom: 10px; ">
+                  <div class="blokDruzyny">
+                    <select style="background-color: rgb(56, 56, 56); height: 45px;" id="framework">
+                      <option value="0">puste</option>
+                      <% Lista?.forEach(function(grupa) {%>
+                        <option value="<%= grupa?.id %>"><%= grupa?.nazwaZespolu %></option>
+                      <%  }) %>
+                    </select>
+                  </div>
+                </div>
+              <% } 
+              else{%>
+                <div style="display: flex; ">
+                  <div style="position: relative;" class="blokDruzyny" onClick="showZawodnicy('druzyna-<%= Lista[j-1]?.team_a?.id %>')">
+                    <%= Lista[j-1]?.team_a?.nazwaZespolu %>
+                    <div 
+                    style="display: none;position: absolute;top: -85px;left: 200px;min-width: 300px;border: 3px solid black;background-color: rgb(61, 61, 61);padding-left: 10px;padding-bottom: 5px;" 
+                    id="druzyna-<%= Lista[j-1]?.team_a?.id %>">
+                    <div style="font-size: 20px;">Zawodnicy: <br/></div>
+                    <div style="font-size: 17px; padding-left: 5px;">
+                      <% Lista[j-1]?.team_a?.users?.forEach(function(zawodnik) {%>
+                        <%if(zawodnik?.rezerwa == 0){%>
+                          <%= zawodnik?.imie %>
+                        <%= zawodnik?.nazwisko %><br/>
+                          <%  } %>
+                      <%  }) %>
+                    </div>
+                      <div style="font-size: 20px;">Rezerwa: <br/></div>
+                    <div style="font-size: 17px; padding-left: 5px;">
+                      <% Lista[j-1]?.team_a?.users?.forEach(function(zawodnik) {%>
+                        <%if(zawodnik?.rezerwa == 1){%>
+                          <%= zawodnik?.imie %>
+                        <%= zawodnik?.nazwisko %><br/>
+                          <%  } %>
+                      <%  }) %>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              <% } %>
+              
+            </div>
+
+          
+        <% }; %>
+  
+      </div>
+
+      <div class="drabinkaPodzialWyniki">
+          <% 
+        // Główne walki ---------------------------------------------------------------------------------
+        for (let i = 0; i < potega/2; i ++) { %>
+          
+          <% if(i >= (startPreWalki/2)) { 
+            j ++ %>
+            <div class="containerTeamsWyniki" id="glownaDruzynaWyniki-<%= i %>">
+              <div class="blokDruzynyWyniki">
+                <%= 0 %>
+              </div>
+            </div>
+              
+          <% 
+          } else { %>
+            <div class="containerTeamsWyniki" id="glownaDruzynaWyniki-<%= i %>">
+              <div class="blokDruzynyWyniki">
+                <%= 1 %>
+              </div>
+            </div>
+          <% }; %>
+            
+        <% }; %>
+    
+      </div>
+
+
+
+    <%  
+  
+    iloscDruzynNext = potega/2
+    } else { %>
+
+      <div class="drabinkaPodzial">
+  
+        <% Lista.forEach(function(grupy) { %>
+          <div class="blokDruzyny">
+            <%= grupy.nazwaZespolu %>
+          </div>
+        <% }); %> 
+  
+      </div>
+
+      <div class="drabinkaPodzialWyniki">
+  
+        <% Lista.forEach(function(grupy) { %>
+          <div class="blokDruzyny">
+            <%= 0 %>
+            
+          </div>
+        <% }); %> 
+  
+      </div>
+
+    <%  } %>
+    <% 
+      let i = 0;
+      let wyniki_i = 0;
+      let wyniki_iloscDruzynNext = iloscDruzynNext;
+
+      while (iloscDruzynNext > 1) { %>
+        <div class="drabinkaPodzial">
+          <% for (let i = 0; i < iloscDruzynNext; i += 2) {%>
+          <div class="blokDruzyny">
+            <select style="background-color: rgb(56, 56, 56);" id="framework">
+              <option value="0">puste</option>
+              <% Lista?.forEach(function(grupa) {%>
+                <option value="<%= grupa?.id %>"><%= grupa?.nazwaZespolu %></option>
+              <%  }) %>
+            </select>
+          </div>
+          <% }; %>
+        </div>
+
+        <div class="drabinkaPodzialWyniki">
+          <% for (let i = 0; i < iloscDruzynNext; i += 2) {%>
+          <div class="blokDruzyny">
+            <%= 0 %>
+          </div>
+          <% }; %>
+        </div>
+       
+      <%
+      iloscDruzynNext /= 2
+      }
+    %>
+
+  </div>
+  
+  <% if (Lista == 0) { %>
+  <div class="brak">Nic tu nie ma :(</div>
+
+  <% } %>
+
+</div>
+
+
+
+<script>
+
+function showZawodnicy(id) {
+  var y = document.getElementById(id);
+  console.log(id)
+
+    if (y.style.display === "none") {
+        y.style.display = "block";
+        console.log("Pokazano druzyna-"+id)
+    }
+    else if (y.style.display === "block") {
+        y.style.display = "none";
+        console.log("Schowano druzyna-"+id)
+    }
+}
+
+</script>
+
+<div id="ShowBox">
+   
+</div>
+
+<script>
+
+  function showDruzyna(){
+    console.log("dar")
+  }
+</script>
+
+
+<script>
+  class LineBracket {
+    constructor(DW, DN) {
+      this.preDruzynaWyniki = document.querySelector(DW);
+      this.glowneDruzynaNazwa = document.querySelector(DN);
+      this.line = document.createElement("div");
+      this.line.style.position = "fixed";
+      this.line.style.background = "white";
+      this.line2 = document.createElement("div");
+      this.line2.style.position = "fixed";
+      this.line2.style.background = "white";
+      this.line3 = document.createElement("div");
+      this.line3.style.position = "fixed";
+      this.line3.style.background = "white";
+      this.updateLinePosition = this.updateLinePosition.bind(this);
+
+      this.updateLinePosition();
+      document.body.appendChild(this.line);
+      document.body.appendChild(this.line2);
+      document.body.appendChild(this.line3);
+      window.addEventListener("resize", this.updateLinePosition);
+      window.addEventListener('scroll', this.updateLinePosition);
+    }
+
+    updateLinePosition() {
+
+      console.log("Klasa dziala")
+      const preDruzynaWynikiRect = this.preDruzynaWyniki.getBoundingClientRect();
+      const glowneDruzynaNazwaRect = this.glowneDruzynaNazwa.getBoundingClientRect();
+
+      const lineX = preDruzynaWynikiRect.right;
+      const lineY = (preDruzynaWynikiRect.top + preDruzynaWynikiRect.bottom)/2;
+      const lineWidth = (glowneDruzynaNazwaRect.left - preDruzynaWynikiRect.right)/2;
+      const lineHeight = 4;
+
+      let line2X =  0
+      let line2Y = 0
+      let line2Width = 0
+      let line2Height = 0
+
+      if(glowneDruzynaNazwaRect.top > preDruzynaWynikiRect.top){
+        line2X =  lineX + lineWidth - lineHeight;
+        line2Y = (preDruzynaWynikiRect.top + preDruzynaWynikiRect.bottom)/2;
+        line2Width = 4;
+        line2Height = (glowneDruzynaNazwaRect.top + glowneDruzynaNazwaRect.bottom)/2 -
+        (preDruzynaWynikiRect.top + preDruzynaWynikiRect.bottom)/2 + lineHeight;
+      }
+      else{
+        line2X =  lineX + lineWidth - lineHeight;
+        line2Y = (glowneDruzynaNazwaRect.top + glowneDruzynaNazwaRect.bottom)/2;
+        line2Width = 4;
+        line2Height = (preDruzynaWynikiRect.top + preDruzynaWynikiRect.bottom)/2 - 
+        (glowneDruzynaNazwaRect.top + glowneDruzynaNazwaRect.bottom)/2 + lineHeight;
+      }
+
+      const line3X = lineX + lineWidth - lineHeight;
+      const line3Y = (glowneDruzynaNazwaRect.top + glowneDruzynaNazwaRect.bottom)/2;
+      const line3Width = (glowneDruzynaNazwaRect.left - preDruzynaWynikiRect.right)/2;
+      const line3Height = 4;
+
+      this.line.style.left = lineX + "px";
+      this.line.style.top = lineY + "px";
+      this.line.style.width = lineWidth + "px";
+      this.line.style.height = lineHeight + "px";
+
+      this.line2.style.left = line2X + "px";
+      this.line2.style.top = line2Y + "px";
+      this.line2.style.width = line2Width + "px";
+      this.line2.style.height = line2Height + "px";
+
+      this.line3.style.left = line3X + "px";
+      this.line3.style.top = line3Y + "px";
+      this.line3.style.width = line3Width + "px";
+      this.line3.style.height = line3Height + "px";
+    }
+  }
+
+  const lineBracket = new LineBracket("#preDruzynaWyniki-1", "#glowneDruzynaNazwa-0");
+  const lineBracket2 = new LineBracket("#preDruzynaWyniki-0", "#glowneDruzynaNazwa-0");
+  const lineBracket3 = new LineBracket("#preDruzynaWyniki-2", "#glowneDruzynaNazwa-1");
+  
+</script>
+
+<script>
+
+  function refresh(){
+    for (let className in window) {
+      // Sprawdzamy, czy dana właściwość jest instancją klasy MyClass
+      if (window[className] instanceof LineBracket) {
+        // Wywołujemy metodę `myMethod` dla danej instancji klasy
+        window[className].updateLinePosition();
+      }
+    }
+  }
+  
+</script>
+
+
+<script>
+
+//ftp.server408829.nazwa.pl
+//server408829_hackaton
+//wtGtu2J9!ZEhwaM
+//hackaton.server408829.nazwa.pl
+
+//SDLaf45d3$%hdz2!666
+
+</script>
+

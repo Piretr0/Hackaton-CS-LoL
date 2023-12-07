@@ -1,0 +1,143 @@
+<%- include('master.ejs') %>
+<div class="bodySelectGame">
+    <div class="podst" style="color:white">
+        <div class="container" >
+
+            <div class="row">
+
+                <div class="col col-sm-8 col-md-10">
+                    <h1 class="display-2 fw-bold" style="color: rgb(255, 255, 255)">Zapisy Lol CS 2023</h1>
+                </div>
+
+            </div>
+
+        
+            <script>
+
+                selectGame = null
+                function selectCS() {
+                selectGame = "CS"
+
+                const elementsWithId = document.querySelectorAll("#demo");
+                elementsWithId.forEach(element => element.innerHTML = "Wybrano grę "+ selectGame);
+
+                const elementsWithId2 = document.querySelectorAll("#selectGameInput");
+                elementsWithId2.forEach(element => {
+                    element.value = selectGame
+                    element.placeholder = selectGame
+                });
+
+                const elementsWithId3 = document.querySelectorAll("#selectGameLabel");
+                elementsWithId3.forEach(element => element.innerHTML = "Wybrano grę " + selectGame);
+                }
+
+                function selectLOL() {
+                selectGame = "LoL"
+
+                const elementsWithId = document.querySelectorAll("#demo");
+                elementsWithId.forEach(element => element.innerHTML = "Wybrano grę "+ selectGame);
+
+                const elementsWithId2 = document.querySelectorAll("#selectGameInput");
+                elementsWithId2.forEach(element => {
+                    element.value = selectGame
+                    element.placeholder = selectGame
+                });
+
+                const elementsWithId3 = document.querySelectorAll("#selectGameLabel");
+                elementsWithId3.forEach(element => element.innerHTML = "Wybrano grę " + selectGame);
+                }
+
+            
+            </script>
+            <div class="row">
+                <div style="text-align: center;">
+                    <div class = "zdjeciaLewo" >
+                        <a onClick = "selectLOL()">
+                            <img 
+                                style="cursor: pointer;"
+                                class="imgBorderBlue"
+                                src="../images/lol.jpg" 
+                                alt="..." 
+                                height="200"
+                            >
+                        </a>
+                    </div>
+                    <div class = "zdjeciaPrawo" >
+                        <a onClick = "selectCS()">
+                            <img 
+                                style="cursor: pointer;"
+                                class="imgBorderYellow"
+                                src="../images/cs.jpg" 
+                                alt="..." 
+                                height="200"
+                            >
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col col-sm-8 col-md-10">
+                    <p id="demo"> Nie wybrano gry</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="btnSelectSchool">
+                    <div class="btnSelectSchoolDesign" id="btnFormStudent" onClick = "changeFormStudent()">
+                        <div>
+                            Formularz dla szkół średnich
+                        </div>
+                    </div>
+                    <div class="btnSelectSchoolDesign" id="btnFormSrednie" onClick = "changeFormSrednie()">
+                        <div >
+                            Formularz dla studentów
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="formSrednie" style="display: none;">
+                <%- include('srednieForm.ejs') %>
+            </div>
+            
+            <div id="formStudent" style="display: none;">
+                <%- include('studentForm.ejs') %>
+            </div>
+            
+
+            <script>
+                var x = document.getElementById("formStudent");
+                var y = document.getElementById("formSrednie");
+
+                var xbtn = document.getElementById("btnFormStudent");
+                var ybtn = document.getElementById("btnFormSrednie");
+
+                function changeFormStudent() {
+                    if (y.style.display === "none") {
+                        y.style.display = "block";
+                        xbtn.style.color = "yellow"
+                        x.style.display = "none";
+                        ybtn.style.color = "white"
+                    }
+                }
+
+                function changeFormSrednie() {
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                        ybtn.style.color = "yellow"
+                        y.style.display = "none";
+                        xbtn.style.color = "white"
+                    }
+                }
+            </script>
+        
+
+        </div>
+
+
+
+    </div>
+</div>
+<%- include('footer.ejs') %>

@@ -1,0 +1,96 @@
+<%- include('adminMaster.ejs') %>
+    <div class="container3">
+        <h1 style="text-align: center;margin-bottom: 3%;">Wyniki wyszukiwania "
+            <%= znajdz2 %>" :</h1>
+        <div class="row justify-content-md-center">
+            <div class="col"></div>
+            <div class="col col-md-7" style="color: white">Login </div>
+            <hr style="margin-top: 3%; height: 2px; color: yellow" />
+        </div>
+        <% register.forEach(function( registers) { %>
+
+            <div class="row" style="margin-top: 3%; margin-bottom: 3%">
+                <% if (registers.add==0) { %>
+                    <div class="col">
+                        <form action="/admins-addadd-<%= registers.id %>" method="post">
+                            <button type="submit" class="btn btn-success butonik">
+            Dodaj dodawanie
+          </button>
+                        </form>
+                    </div>
+                    <% } %>
+                        <% if (registers.add==1) { %>
+                            <div class="col">
+                                <form action="/admins-takeadd-<%= registers.id %>" method="post">
+                                    <button type="submit" class="btn btn-danger butonik">
+            Odbierz dodawanie
+          </button>
+                                </form>
+                            </div>
+                            <% } %>
+                                <% if (registers.edit===0) { %>
+                                    <div class="col">
+                                        <form action="/admins-addedit-<%= registers.id %>" method="post">
+                                            <button type="submit" class="btn btn-success butonik">
+            Dodaj edycje
+          </button>
+                                        </form>
+                                    </div>
+                                    <% } %>
+                                        <% if (registers.edit==1) { %>
+                                            <div class="col">
+                                                <form action="/admins-takeedit-<%= registers.id %>" method="post">
+                                                    <button type="submit" class="btn btn-danger butonik">
+            Odbierz edycje
+          </button>
+                                                </form>
+                                            </div>
+                                            <% } %>
+                                                <% if (registers.delete==0) { %>
+                                                    <div class="col">
+                                                        <form action="/admins-adddelete-<%= registers.id %>" method="post">
+                                                            <button type="submit" class="btn btn-success butonik">
+            Dodaj usuwanie
+          </button>
+                                                        </form>
+                                                    </div>
+                                                    <% } %>
+                                                        <% if (registers.delete==1) { %>
+                                                            <div class="col">
+                                                                <form action="/admins-takedelete-<%= registers.id %>" method="post">
+                                                                    <button type="submit" class="btn btn-danger butonik">
+            Odbierz usuwanie
+          </button>
+                                                                </form>
+                                                            </div>
+                                                            <% } %>
+
+                                                                <div class="col">
+                                                                    <p>
+                                                                        <%= registers.login %>
+                                                                    </p>
+                                                                </div>
+
+                                                                <% if (registers.power==0) { %>
+                                                                    <div class="col">
+                                                                        <form action="/admins-delete-<%= registers.id %>" method="post">
+                                                                            <button type="submit" onclick="return confirm('Czy na pewno chcesz usunąć konto?')" class="btn btn-danger butonik">
+            Usuń konto
+          </button>
+                                                                        </form>
+                                                                    </div>
+                                                                    <% } %>
+                                                                        <% if (registers.power==1) { %>
+                                                                            <div class="col">
+                                                                                <form action="/admins-delete-<%= registers.id %>" method="post">
+                                                                                    <button type="submit" onclick="return confirm('Czy na pewno chcesz usunąć konto?')" class="btn btn-danger butonik" disabled>
+            Usuń konto
+          </button>
+                                                                                </form>
+                                                                            </div>
+                                                                            <% } %>
+            </div>
+            <hr />
+
+            <% }); %>
+    </div>

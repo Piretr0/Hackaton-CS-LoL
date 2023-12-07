@@ -1,0 +1,130 @@
+<%- include('adminMaster.ejs') %>
+
+<div class="text-center">
+    <% if(locals.message){ %>
+        <div class='alert alert-success'>
+            <%= message %></div>
+
+    <% } %>
+</div>
+<div class="text-center">
+    <% if(locals.message2){ %>
+        <div class='alert alert-danger'>
+            <%= message2 %></div>
+
+    <% } %>
+</div>
+
+
+<div class="center">
+    <div class="linki d-flex justify-content-center">
+        <div class="row">
+            <div class="col"><a href='/adminPage'>Wszyscy</a></div>
+            <div class="col"><a href='/adminPage/srednie'>Średnie</a></div>
+            <div class="col"><a href='/adminPage/student'>Studenci</a></div>
+            <div class="col"><a href='/usuniete'>Usunięte</a></div>
+        </div>
+    </div>
+</div>
+
+<div class="datatable">
+    <script>$(document).ready(function () {
+            $('#teams').DataTable({
+                "dom": 'Bfrtip',
+                "language": {
+                    "search": 'Szukaj:',
+                    "lengthMenu": "Pokaż _MENU_ rekordów na stronie",
+                    "zeroRecords": "Nic tu nie ma :(",
+                    "info": " _PAGE_ / _PAGES_ ",
+                    "infoEmpty": "Nie ma takiego rekordu",
+                    "infoFiltered": "(Pokazano ze wszystkich _MAX_ rekordów)",
+                    "paginate": {
+                        "previous": "Wcześniejsza ",
+                        "next": "Następna"
+                    },
+                },
+                "columnDefs": [{
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 0,
+                }, {
+                    "data": "id",
+                    render: function (data, type, row, meta) {
+                        return meta.row + meta.settings._iDisplayStart + 1;
+                    },
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 1,
+                    "className": ''
+                }, {
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 4,
+                }, {
+
+                    "searchable": false,
+                    "orderable": false,
+                    "targets": 5,
+                }],
+                "order": [[1, 'asc']],
+                "buttons": [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+
+        });
+    </script>
+
+
+    <div class=" d-flex justify-content-center">
+        <div class="datatablediv ">
+            <div class="container">
+                <table style="background-color: rgb(61, 61, 61);" id="teams" cellspace=0>
+                    <thead>
+
+                    <tr>
+                        <th></th>
+                        <th>lp</th>
+                        <th>Nazwa zespołu</th>
+                        <th>Nazwa szkoły</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <% grupies.forEach(function(grupy) { %>
+                        <tr style="background-color: rgb(61, 61, 61);">
+                            <td>
+                                <% if (uprEdit == 1) { %>
+                                    <form class="d-flex justify-content-center" id="add-row-form"
+                                          action="/adminPage/details-<%= grupy.id %>" method="post">
+                                        <div class="edit">
+                                            <button type="submit" class="btn btn-warning">podgląd</button>
+                                        </div>
+                                    </form>
+                                <% } %>
+                            </td>
+                            <td></td>
+                            <td><p><%= grupy.nazwaZespolu %> </p></td>
+                            <td><p><%= grupy.nazwaSzkoly %></p></td>
+                            <td>
+                                <% if (uprDelete == 1) { %>
+                                    <form class="d-flex justify-content-center" id="add-row-form"
+                                          action="/adminPage-delete-<%= grupy.id %>" method="post">
+                                        <button type="submit" class="btn btn-danger">Usuń</button>
+                                    </form>
+                                <% } %>
+                            </td>
+                            <td></td>
+                        </tr>
+                    <% }); %>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>

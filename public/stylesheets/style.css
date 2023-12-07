@@ -1,0 +1,1213 @@
+  .mydiv{
+    background-color:#43A4DC;
+  }
+
+body{
+    background-color: #23252d !important;
+}
+
+.bodyGlowna{
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.1)), url("../images/LolVSCS.jpg");
+}
+
+.bodySelectGame {
+    min-height: 540px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.1)), url("../images/SummonersRift.jpg");
+}
+
+.bodyDrabinka {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.1)), url("../images/SummonersRift.jpg");
+}
+.drabinka {
+    margin-left: 100px; 
+
+}
+@media(max-width: 1000px) {
+    .drabinka {
+        margin-left: 0px; 
+        display: flex; 
+        flex-direction: row; 
+        align-items: flex-start;
+    }
+}
+
+
+
+
+
+
+  .connecting-line {
+    position: fixed;
+    z-index: 1; /* make sure it's on top of other elements */
+    /* set the initial position of the line */
+  }
+  .containerTeams {
+    font-size: 10px !important;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+    height: 57px;
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    white-space: nowrap; 
+    border-radius: 5px 0% 0% 5px;
+    background-color: #4d4d4d;
+    border-left: 1px solid rgb(19, 19, 19);
+    border-top: 1px solid rgb(19, 19, 19);
+    border-bottom: 1px solid rgb(19, 19, 19);
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .containerTeamsWyniki{
+    font-size: 10px!;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    white-space: nowrap; 
+    border-radius: 0px 5px 5px 0px;
+    background-color: #3a3a3a;
+    border-right: 1px solid rgb(19, 19, 19);
+    border-top: 1px solid rgb(19, 19, 19);
+    border-bottom: 1px solid rgb(19, 19, 19);
+  }
+
+.blokDruzyny {
+    color: white;
+    font-size: 18px;
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
+}
+
+.blokDruzynyWyniki{
+    display: flex;
+    color: white;
+    font-size: 18px;
+    /* margin-top: 10px;
+    margin-bottom: 10px; */
+}
+.blokDruzynyPuste{
+   background-color: rgb(56, 56, 56); 
+   height: 27px;
+   font-size: 18px;
+}
+
+.drabinkaPodzial{
+    display: flex; 
+    flex-direction: column; 
+    margin-left: 50px;
+    align-items: center; 
+    justify-content: space-around;
+}
+
+
+.drabinkaPodzialWyniki{
+    display: flex; 
+    flex-direction: column; 
+    align-items: stretch;
+    justify-content: space-around;
+}
+.imgBorderYellow {
+    border: 2px solid rgb(255, 217, 0);
+    transition: 0.5s ease-out;
+    margin-top: 2%;
+}
+.imgBorderBlue {
+    border: 2px solid rgb(40, 0, 216);
+    transition: 0.5s ease-out;
+    margin-top: 2%;
+}
+
+.imgBorderBlue:hover {
+    box-shadow: 0 0 1em #0400dd;
+}
+.imgBorderYellow:hover {
+    box-shadow: 0 0 1em #d9ff02;
+}
+
+.zdjeciaLewo {
+    float: center;
+}
+.zdjeciaPrawo {
+    float: center;
+}
+
+.btnSelectSchool{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: space-evenly
+
+}
+
+.btnSelectSchoolDesign{
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    width: 250px; 
+    height: 50px; 
+    background-color: #212529; 
+    cursor:pointer; 
+    margin: 15px;
+}
+.btnSelectSchoolDesign:hover{
+    color: yellow;
+}
+
+
+@media(min-width: 1000px) {
+    .zdjeciaLewo {
+        float: left;
+    }
+    .zdjeciaPrawo {
+        float: right;
+    }
+    .btnSelectSchool{
+        flex-direction: row !important;
+    }
+
+}
+
+
+
+
+@font-face {
+    font-family: Arial, Helvetica, sans-serif;
+    src: url("MinePolski.otf");
+}
+
+@font-face {
+    font-family: MC2;
+    src: url("MinecraftEvenings.otf");
+}
+
+@media only screen and (max-width: 700px) {
+    .datatablediv {
+        width: 100% !important;
+    }
+}
+#teams_paginate .current{
+    color: black !important;
+}
+
+.minecraft {
+    font-family: MC2, serif;
+    color: white;
+}
+
+#teams_paginate a{
+    color: white !important
+}
+
+.dataTables_filter , .dataTables_info{
+    color: white !important;
+}
+
+.dataTables_filter input{
+    background-color: white !important;
+}
+
+.dataTables_length select{
+    background-color: white !important;
+    color: black !important;
+}
+.dataTables_length , .teams_length{
+    color: white !important;
+}
+
+.datatablediv {
+    padding-top:3%;
+    padding-bottom:3%;
+    width: 80%;
+}
+
+.datatablediv2 {
+   
+    background-color: #28242c;
+    margin-top: 5%;
+    padding:3%;
+    border-radius: 25px;
+    width: 80%;
+    border: 1px solid white;
+    margin-bottom: 20%;
+   
+}
+
+
+.datatablediv2 th,td,label,select,p {
+    color:white;
+  
+}
+.datatablediv2 td {
+    background-color: #28242c;
+}
+.datatablediv2 tr{
+    background-color:#28242c;
+}
+.datatablediv2  button {
+    margin-bottom:10%;
+    margin-top: 10%;
+}
+.datatablediv2 select option  {
+    color:black;
+    
+}
+.datatablediv2 .dataTables_filter input{
+    background-color: white !important;
+    margin-bottom: 5%;
+}
+
+.datatablediv #teams {
+    padding: 3%;
+}
+.datatablediv #admins {
+    padding: 3%;
+}
+.datatablediv input {
+    border: 1px solid black !important;
+    box-shadow:none;
+    
+}
+
+.navbar {
+    opacity: 95%;
+    box-shadow: 0 0 1em #212529;
+}
+
+.container3 {
+    font-size: 25px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+.navbar a {
+    font-family: MC;
+    font-size: 27px;
+    margin-left: 2%;
+    height: 70px !important;
+}
+
+.navbar a:hover {
+    /* font-size: 29px; */
+    /* text-shadow: 0 0 1em yellow; */
+    color: yellow !important;
+}
+
+.boddy2 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* background-image: url("../images/LoLVsCS.jpg"); */
+    /* background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* background: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.1)), url("../images/tlo3.png"); */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.1)), url("../images/SummonersRift.jpg");  */
+}
+
+.adminmasterbody {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: rgb(218, 218, 218);
+    background-color: rgb(61, 61, 61);
+    width: 100%;
+}
+
+#logoutbtn {
+    margin-bottom: 5%;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: MC;
+}
+
+
+@media only screen and (max-width: 754px) {
+    .datatablediv2 {
+        width: 100%;
+        border-radius: 0px;
+        border-left: none;
+        border-right: none;
+        
+    }
+}
+
+@media only screen and (max-width: 700px) {
+
+
+    .podst {
+        width: 100% !important;
+        margin: auto !important;
+    }
+    .formNazwaSzkola {
+        margin-bottom: 10% !important;
+    }
+    .formContent {
+        font-family: MC !important;
+        font-size: 30px !important;
+        color: white !important;
+        margin-top: 2% !important;
+        margin-bottom: 5% !important;
+        padding-top: 2% !important;
+        padding-bottom: 3% !important;
+        opacity: 95% !important;
+        border-top: 2px solid white !important;
+        border-bottom: 2px solid white !important;
+        border-left: none !important;
+        border-right: none !important;
+        margin-left: none !important;
+        margin-right: none !important;
+        width: 100% !important;
+        padding: none !important;
+        max-width: none !important;
+        min-width: 100% !important;
+        margin: none !important;
+        border-radius: 0px !important;
+    }
+
+    .formContent h1 {
+        font-size: 35px!important;
+        margin-bottom: 5%!important;
+    }
+    .podst input {
+        min-width: none !important;
+        height: none !important;
+        width: 250px !important;
+    }
+    .podst .formContent {
+        text-align: center !important;
+    }
+    .formContent .formContent-osoby {
+        margin-bottom: 10% !important;
+    }
+    .formContent-osoby .osoba {
+        text-align: center;
+        max-width: none !important;
+    }
+    .formContent .row {
+        flex-direction: column !important;
+    }
+    .formContent .formContent-btn {
+        margin-bottom: 5% !important;
+    }
+    .formNazwaSzkola-right {
+        float: none !important;
+    }
+    .formNazwaSzkola-left {
+        float: none !important;
+    }
+    .formContent .label-hidden {
+        display: block !important;
+    }
+    .formContent .label-show {
+        display: none;
+    }
+}
+
+.formContent .col {
+    margin-left: 0px !important;
+}
+
+.formContent .formContent-osoby {
+    text-align: center;
+}
+
+.formContent-osoby .osoba label {
+    max-width: fit-content;
+    min-width: 110px;
+}
+
+.podst {
+    margin: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.podst-main {
+    margin: auto;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.formNazwaSzkola {
+    margin-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.formContent2 {
+    color: white;
+    box-shadow: 0 0 3em #062e55;
+    border: 2px solid white;
+}
+
+.formContent {
+    font-family: MC;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    background-color: #414141;
+    font-size: 30px;
+    color: white;
+    margin: auto;
+    max-width: 1050px;
+    box-shadow: 0 0 1em #212529;
+    border-radius: 2%;
+    margin-bottom: 3%;
+    margin-top: 7%;
+    margin-bottom: 5%;
+    opacity: 95%;
+    border: 2px solid white;
+}
+
+.formContent h1 {
+    font-size: 30px;
+    margin-bottom: 5%;
+}
+
+.formContent label {
+    font-size: 20px;
+}
+
+.podst input {
+    width: 100%;
+}
+
+.podst .row {
+    align-items: flex-end !important;
+}
+
+.podst .formContent {
+    text-align: center
+}
+
+.formContent .formContent-osoby {
+    margin-bottom: 2%;
+}
+
+.formContent .formContent-btn {
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.formContent .label-hidden {
+    display: none;
+}
+
+
+
+
+/* test form */
+
+form input {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+    text-align: center;
+}
+
+.footer {
+    font-family: MC;
+    font-size: 36px;
+    margin-top: 20px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    padding: 20px;
+    width: 100%;
+    min-height: 70px;
+    background-color: #212529;
+    color: yellow;
+    text-align: center;
+    opacity: 90%;
+    box-shadow: 0 0 1em #212529;
+}
+.footer a{
+
+    cursor: pointer;
+    color: white;
+    font-size: 30px;
+}
+
+.patron{
+    font-size: 1.7rem !important;
+}
+
+.footer a:hover{
+    
+    cursor: pointer;
+    color: yellow;
+    font-size: 30px;
+}
+
+#btn {
+    font-size: 25px;
+}
+
+.col {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
+
+.loginowanie {
+    width: auto;
+    padding: 10px;
+    font-size: larger;
+}
+
+.loginowanie label {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.formularzyklogowaniadiv {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #212529;
+    margin-top: 7%;
+    padding: 5%;
+    border-radius: 2%;
+    box-shadow: 0 0 5em#212529;
+    border: 1px solid white;
+    font-size: 22px;
+}
+
+h1 .formularzyklogowaniadiv {
+    margin-bottom: 5%;
+}
+
+.formularzyklogowaniadiv input {
+    margin-top: 3%;
+    width: 70%;
+}
+
+.formularzyklogowaniadiv2 input {
+    width: 80%;
+    margin-bottom: 3%;
+}
+
+.btnLog {
+    background-color: #4CAF50;
+    opacity: 80%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    width: 40%;
+    border: none;
+    margin-top: 5%;
+    margin-right: 5%;
+}
+
+.formularzyklogowaniadiv2 {
+    width: 60%;
+    background-color: #212529;
+    margin-top: 4%;
+    padding: 2%;
+    border-radius: 2%;
+    box-shadow: 0 0 5em#212529;
+    border: 1px solid white;
+    font-size: 22px;
+}
+
+.btnLog:hover {
+    opacity: 100%;
+}
+
+.navbar>.container-fluid {
+    display: flex !important;
+    justify-content: flex-start !important;
+}
+
+.formularzyklogowaniadiv2 button {
+    margin-top: 2%;
+    width: 20%;
+    height: 60px;
+}
+
+.navbar-brand {
+    margin-left: 20px
+}
+
+input {
+    border-radius: 25px !important;
+    margin-top: 2%;
+    height: 50px;
+    border: 1px solid white !important;
+    text-align: center;
+    box-shadow: inset 0 0 1em rgb(138, 134, 134);
+    border-radius: 25px !important;
+    font-size: 20px !important;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+.btnLog {
+    background-color: #1c8454;
+    opacity: 90%;
+    color: white;
+    padding: 10px 6px;
+    text-align: center;
+    width: 40%;
+    border-radius: 5%;
+    border: none;
+    margin-top: 10%;
+    margin-right: 5%;
+    font-size: 22px;
+}
+
+.btnLog:hover {
+    opacity: 100%;
+}
+
+.navbar>.container-fluid {
+    display: flex !important;
+    justify-content: flex-start !important;
+}
+
+.navbar-brand {
+    margin-left: 20px
+}
+
+.mcbutton {
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    background: #999 url("../images/bgbtn.png") center / cover;
+    image-rendering: pixelated;
+    border: 2px solid #000;
+    font-size: 35px;
+    color: white;
+    text-shadow: 2px 2px black;
+    opacity: 70%;
+    transition: 0.5s ease-out;
+    margin-top: 2%;
+}
+
+.mcbutton:hover {
+    text-shadow: 2px 2px black;
+    color: #ffff80;
+    opacity: 100%;
+    background-color: rgb(103, 87, 131);
+}
+
+.rows {
+    text-align: left;
+    font-size: 20px;
+}
+
+.container p {
+    color: yellow;
+    font-size: 25px;
+}
+
+.text-label {
+    color: #ffff80;
+}
+
+.text-label2 {
+    color: #ffffa1 !important;
+}
+
+.text-label3 {
+    color: #83ff67;
+}
+.text-label4 {
+    color: black;
+}
+
+.text-link {
+    color: #83ff67;
+    text-decoration: none;
+}
+
+.text-link2 {
+    color: #ffffa1;
+    text-decoration: none;
+}
+
+.text-main {
+    color: yellow;
+}
+
+.container .row {
+    justify-content: space-evenly !important;
+}
+
+.usuniete-usunWszystkie {
+    text-align: center;
+}
+
+@media only screen and (max-width: 826px) {
+    .container3 .search input {
+        width: 50%;
+        height: 30px;
+    }
+    .container3 input[type="search"] {
+        font-size: 13px !important;
+    }
+    .btnLog {
+        font-size: 10px;
+        line-height: 10px;
+    }
+    .error {
+        font-size: 15px;
+    }
+    .formularzyklogowaniadiv label {
+        font-size: 15px;
+        margin-right: 10%;
+    }
+    .formularzyklogowaniadiv input {
+        font-size: 15px !important;
+        height: 30px !important;
+        width: 60% ;
+    }
+    .formularzyklogowaniadiv2 label {
+        font-size: 17px;
+    }
+    .formularzyklogowaniadiv2 input {
+        font-size: 15px !important;
+        height: 40px !important;
+        width: 60%;
+        
+    }
+    .formularzyklogowaniadiv2 button {
+        font-size: 15px !important;
+        height: 40px !important;
+        
+        
+    }
+    .formularzyklogowaniadiv2 {
+        border-left: none;
+        border-right: none;
+        border-radius: 0%;
+        width: 100%;
+    }
+    .search input {
+        margin-right: 2%;
+        width: 30%;
+    }
+    .search button {
+        width: 12%;
+        height: 50px;
+    }
+    .center .linki a {
+        font-size: 20px !important;
+    }
+    .container .rows {
+        font-size: 15px !important;
+    }
+    .container p {
+        font-size: 20px !important;
+    }
+    .container .col-6 {
+        width: 25% !important;
+    }
+    .usuniete-usunWszystkie form button {
+        font-size: 15px;
+        height: 30px;
+        width: 130px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .formularzyklogowaniadiv2 {
+        width: 100%;
+    }
+    .formularzyklogowaniadiv2 input {
+        width: 100%;
+    }
+    .search input[type="search"] {
+        font-size: 13px !important;
+    }
+    .formularzyklogowaniadiv .e {
+        text-align: center !important;
+    }
+    .search input {
+        margin-right: 2%;
+        width: 25%;
+        height: 40px;
+    }
+    .container3 button {
+        width: 100%;
+        height: 50px;
+        font-size: 12px;
+    }
+    .container3 {
+        font-size: 20px;
+    }
+    .search button {
+        width: 15%;
+        height: 40px;
+    }
+    .center .linki a {
+        font-size: 20px !important;
+    }
+    .container .rows {
+        font-size: 15px !important;
+    }
+    .container p {
+        font-size: 20px !important;
+    }
+    .container .col-6 {
+        width: 25% !important;
+    }
+    .usuniete-usunWszystkie form button {
+        font-size: 12px;
+        height: 30px;
+    }
+}
+
+@media only screen and (max-width: 675px) {
+
+    .container3 .butonik {
+        width: 100%;
+        height: 40px;
+        font-size: 10px;
+    }
+    .container3 {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 618px) {
+    .datatablediv2 {
+        font-size: 12px;
+        
+    }
+    .datatablediv2 button {
+        width: 80%;
+        font-size: 10px;
+    }
+    .search input[type="search"] {
+        font-size: 14px !important;
+    }
+    .formularzyklogowaniadiv2 button {
+        font-size: 12px !important;
+        height: 45px !important;
+        
+        
+    }
+    .container3 .butonik {
+        width: 100%;
+        height: 40px;
+        font-size: 7px;
+    }
+    .container3 {
+        font-size: 10px;
+    }
+    .container3 .search input {
+        height: 30px;
+        font-size: 8px;
+    }
+    .container3 {
+        width: 80%;
+    }
+    .container3 .search button {
+        width: 25%;
+        font-size: 12px;
+        height: 30px;
+    }
+}
+
+@media only screen and (max-width: 615px) {
+
+    .search input[type="search"] {
+        font-size: 12px !important;
+    }
+    .search button {
+        width: 15%;
+        font-size: 12px !important;
+    }
+
+    .center .linki a {
+        font-size: 15px !important;
+    }
+    .container .rows {
+        font-size: 10px !important;
+    }
+    .container p {
+        font-size: 15px !important;
+    }
+    .container .col-6 {
+        width: 25% !important;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    .datatablediv2 {
+        font-size: 8px;
+        
+    }
+    .datatablediv2 button {
+        width: 100%;
+        font-size: 9px;
+    }
+    .datatablediv2 input {
+        height: 30px;
+    }
+    .formularzyklogowaniadiv label {
+        font-size: 12px;
+    }
+    .error {
+        font-size: 12px;
+    }
+    .formularzyklogowaniadiv input {
+        font-size: 12px !important;
+        height: 30px !important;
+        width: 60%;
+    }
+    .formularzyklogowaniadiv2 label {
+        font-size: 12px;
+    }
+    .formularzyklogowaniadiv2 input {
+        font-size: 12px !important;
+        height: 30px !important;
+        width: 100%;
+    }
+    .search input {
+        margin-right: 2%;
+        width: 20%;
+        height: 30px;
+    }
+    .search input[type="search"] {
+        font-size: 10px !important;
+    }
+    .search button {
+        width: 15%;
+        font-size: 10px;
+        height: 30px;
+    }
+    .center .linki a {
+        font-size: 10px !important;
+    }
+    .container .rows {
+        font-size: 10px !important;
+        margin-left: none !important;
+        margin-right: none !important;
+    }
+    .container p {
+        font-size: 12px !important;
+    }
+    .container .col-6 {
+        width: 15% !important;
+        padding-left: 0% !important;
+        padding-right: 0% !important;
+    }
+    .container .col-3 {
+        width: none !important;
+        padding-left: none !important;
+        padding-right: 0% !important;
+    }
+    .container .row {
+        justify-content: none !important;
+        margin-left: 0% !important;
+        margin-right: 0% !important;
+    }
+    .container .row .btn {
+        font-size: 10px !important;
+    }
+    .usuniete-usunWszystkie .col-2 {
+        width: 0% !important;
+    }
+    .container{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .datatablediv #teams {
+        padding-left: 0% !important;
+        padding-right: 0% !important;
+    }
+    .col {
+        margin-left: 0px !important;
+    }
+}
+
+
+
+@media only screen and (max-width: 370px) {
+
+
+    .datatablediv2 button {
+        width: 100%;
+        font-size: 9px;
+    }
+    .datatablediv2 input {
+        height: 30px;
+    }
+    .formularzyklogowaniadiv {
+        border-left: none;
+        border-right: none;
+        border-radius: 0%;
+    }
+    .search button {
+        width: 20%;
+    }
+    .sorting{
+        font-size: 12px !important;
+    }
+    .container{
+        padding-right: 0px !important;
+        padding-left: 0px !important;
+    }
+    .datatablediv #teams {
+        padding-left: 0% !important;
+        padding-right: 0% !important;
+    }
+    .col {
+        margin-left: 0px !important;
+    }
+    
+}
+
+.container .row form {
+    margin-top: 1, 5rem;
+}
+
+.container .row {
+    flex-wrap: nowrap !important;
+}
+
+.linki a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 30px;
+}
+
+.linki a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #ffffa0;
+}
+
+.container {
+    margin-top: 15px;
+}
+
+.brak {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.adminMenu {
+    font-size: 30px;
+}
+
+.adminMenu li {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.btnEdycjaWyslij {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+
+#logoutbtn {
+    margin-top: 3%;
+    font-size: 20px;
+}
+
+.divdodaj {
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
+    border-bottom: solid white 3px;
+}
+.nav-item
+{
+    display: flex;
+    align-items: center !important;
+}
+.navbar .active {
+    font-size: 32px !important;
+    color: yellow !important;
+    margin-top: -2px !important;
+}
+
+.active {
+    font-size: 32px !important;
+    color: yellow !important;
+}
+
+.btnlogout {
+    float: right;
+}
+
+.search input {
+    margin-right: 2%;
+    width: 40%;
+}
+
+.search {
+    margin-bottom: 5%;
+}
+
+#cookies-message{
+    color: yellow;
+    padding: 12px 10px;
+    text-align: center;
+    position: fixed;
+    bottom:0px;
+    left:0;
+    right:0;
+    background-color: rgba(0, 0, 0, 0.82);
+    z-index: 100000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.82);
+    display: none;
+}
+#accept-cookies-checkbox{
+    background-color: yellow;
+    color: black;
+    border: solid 1px yellow;
+    transition: all 0.5s;
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-left: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+#accept-cookies-checkbox:hover{
+    background-color: transparent;
+    border-color: white;
+}

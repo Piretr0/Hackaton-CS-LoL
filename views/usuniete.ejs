@@ -1,0 +1,110 @@
+<%- include('adminMaster.ejs') %>
+    
+        <div class="center">
+            <div class="linki">
+                <div class="row">
+                    <div class="col" ><a href='/adminPage' >Wszyscy</a></div>
+                    <div class="col" ><a href='/adminPage/srednie'>Średnie</a></div>
+                    <div class="col" ><a href='/adminPage/student'>Studenci</a></div>
+                    <div class="col" ><a href='/usuniete'>Usunięte</a></div>
+                </div>
+            </div>
+        </div>
+
+<div class="datatable">
+<script>$(document).ready( function () {
+    $('#teams').DataTable({
+    "language": {
+        "search": 'Szukaj:',
+        "lengthMenu": "Pokaż _MENU_ rekordów na stronie",
+        "zeroRecords": "Nic tu nie ma :(",
+        "info": " _PAGE_ / _PAGES_ ",
+        "infoEmpty": "Nie ma takiego rekordu",
+        "infoFiltered": "(Pokazano ze wszystkich _MAX_ rekordów)",
+        "paginate": {
+      "previous": "Wcześniejsza ",
+      "next":"Następna"
+    },
+},
+    "columnDefs": [ {
+            "searchable": false,
+            "orderable": false,
+            "targets": 0,
+        },{
+            "searchable": false,
+            "orderable": false,
+            "targets": 3,
+        },{
+            
+            "searchable": false,
+            "orderable": false,
+            "targets": 4,
+        }  ],
+        "order": [[ 1, 'asc' ]],
+});
+
+} );
+</script>
+    
+
+<div class=" d-flex justify-content-center">
+<div class="datatablediv ">
+    
+<div class="container">
+   
+<table style="background-color: rgb(61, 61, 61);" id="teams" cellspace=0 >
+    <thead>
+        
+        <tr>
+            <th></th>
+            <th>Nazwa zespołu</th>
+            <th>Nazwa szkoły</th>
+            <th><% if (grupies != 0) { %>
+                <% if (uprDelete == 1) { %>
+                    <div class="usuniete-usunWszystkie">
+                            <form id="add-row-form" action="/adminPage-usunAll" method="post">
+                                <button type="submit" onclick="return confirm('Czy na pewno chcesz usunąć ?')" class="btn btn-danger">Usuń wszystkie</button>
+                            </form>
+                    </div>
+                    <% } %> 
+            <% } %></th>
+        </tr>
+        
+    </thead>
+
+    <tbody>
+        
+        <% grupies.forEach(function(grupy) { %>
+        <tr style="background-color: rgb(61, 61, 61);">
+            <td><% if (uprEdit == 1) { %>
+                <form class="d-flex justify-content-center" id="add-row-form" action="/adminPage/details-<%= grupy.id %>" method="post">
+                    <div class="edit">
+                        <button type="submit" class="btn btn-warning">Edycja</button>
+                    </div>
+                </form> 
+                <% } %></td>
+            <td><p><%= grupy.nazwaZespolu %> </p></td>
+            <td><p><%= grupy.nazwaSzkoly %></p></td>
+            <td> 
+                    <% if (uprEdit == 1) { %>
+                    <form id="add-row-form" action="/adminPage-back-<%= grupy.id %>" method="post">
+                        <button type="submit" class="btn btn-success">Przywróć</button>
+                    </form>
+                    <% } %>
+                    <% if (uprDelete == 1) { %>
+                        <form class="mt-2 mb-3" id="add-row-form" action="/adminPage-usun-<%= grupy.id %>" method="post">
+                            <button type="submit" onclick="return confirm('Czy na pewno chcesz usunąć ?')" class="btn btn-danger">Usuń</button>
+                        </form>
+                    <% } %>                          
+            </td>
+            <td></td>
+        </tr>
+        <% }); %> 
+    </tbody>
+   
+</table>
+</div>
+
+</div>
+</div>
+

@@ -1,0 +1,108 @@
+<%- include('adminMaster.ejs') %>
+
+    <div class="d-flex justify-content-center" style="margin-bottom: 10%;">
+
+        <div class="formularzyklogowaniadiv2 ">
+            <div class="text-center">
+                <% if(locals.message){ %>
+                    <div class="alert alert-success error">
+                        <%= message %>
+                    </div>
+
+                    <%}%>
+            </div>
+            <div class="text-center">
+                <% if(locals.message2){ %>
+                    <div class="alert alert-danger error">
+                        <%= message2 %>
+                    </div>
+
+                    <%}%>
+            </div>
+            <div class="m-4" style="text-align: center;">
+                <h1>Zmiana ustawień twojego konta</h1>
+            </div>
+            <form action="/adminPage/admindetails" method="POST">
+                <div class="mt-5">
+                    <div class="row justify-content-md-center " style="margin-top: 10%;">
+                        <div class="col e">
+                            <label for="loginchange "><p>Zmiana loginu do konta:</p></label
+                  >
+      </div>
+      <div class="col e">
+        <input
+          type="text"
+          name="loginchange"
+          placeholder="Nowy login"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="col">
+      <button
+        class="btn btn-success"
+        id="logoutbtn"
+      >
+        Zmień login
+      </button>
+    </div>
+  </div>
+</form>
+
+<form action="/adminPage/admindetails2" method="POST">
+  <div class="mt-5">
+    <div class="row">
+      <div class="col e ">
+        <label for="passchange "
+          ><p>Zmiana hasła do konta:</p></label
+        >
+      </div>
+      <div class="col e">
+        <input
+          type="password"
+          name="passchange"
+          placeholder="Nowe hasło"
+          required
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col e">
+        <label for="passchange2" style=" margin-right: 1%"
+          ><p>Powtórz hasło:</p></label
+        >
+      </div>
+      <div class="col e">
+        <input
+          type="password"
+          name="passchange2"
+          placeholder="Powtórz hasło"
+          required
+        />
+      </div>
+    </div>
+    <div class="col">
+      <button
+        class="btn btn-success"
+        id="logoutbtn"
+      >
+        Zmień hasło
+      </button>
+    </div>
+  </div>
+</form>
+
+<form action="/deleteadminacc" method="POST">
+  <div class="col text-center mt-5">
+    <button
+      class="btn btn-danger"
+      onclick="return confirm('Czy na pewno chcesz usunąć konto?')"
+      id="logoutbtn"
+    >
+      Usuń konto
+    </button>
+  </div>
+</form>
+</div>
+</div>
